@@ -1,0 +1,6 @@
+# AI Log
+
+| Date and Time       | Prompt                                                                                                                                        | Tool    | Response Synopsis                                                        | Change                                             |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------ | -------------------------------------------------- |
+| 05/05/2026 12:00 AM | When is Cinco De Mayo?                                                                                                                        | ChatGPT | Today                                                                    | Changed dinner plans.                              |
+| 05/10/2026 3:15 PM  | I totally forgot to buy my mom a gift and she is coming over!!! Please make an image of a handwritten letter telling her how much I love her. | Gemini  | Happy Mother’s Day letter and scolding me for being terrible/ungrateful. | Set reminders of Mother’s Day and felt deep shame. |
