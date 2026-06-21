@@ -4,7 +4,8 @@ import numpy as np
 import pandas as pd
 #### Image path
 IMAGE_PATH = "E:\Image Processing\Homework 1\Input\original_image.png"
-
+OUTPUT_DIR = Path("E:\Image Processing\Homework 1\Outputs\converted_images")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 ###### Read image
 image = cv2.imread(IMAGE_PATH)
 
@@ -18,7 +19,7 @@ print("Height:", image.shape[0])
 print("Width:", image.shape[1])
 print("Channels:", image.shape[2])
 
-
+########## part 2 (question 1)
 ##### Converting image from BGR to RGB as OpenCV reads images as BGR
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
@@ -87,3 +88,34 @@ for channel_name, channel_data in channels.items():
     row = {"channel": channel_name}
     row.update(stats)
     statistics_results.append(row)
+
+
+
+########## part 2 (question 2)
+# Original Image converted to grayscale image
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+cv2.imwrite(str(OUTPUT_DIR / "grayscale_image.png"), gray_image)
+
+# 2. Original Image converted to binary image using Otsu's thresholding
+_, binary_image = cv2.threshold(
+    gray_image,
+    0,
+    255,
+    cv2.THRESH_BINARY + cv2.THRESH_OTSU
+)
+cv2.imwrite(str(OUTPUT_DIR / "binary_image.png"), binary_image)
+
+# 3. Original Image converted to HSV image
+hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+cv2.imwrite(str(OUTPUT_DIR / "hsv_image.png"), hsv_image)
+
+# 4. Original Image converted to CIELAB image
+cielab_image = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+cv2.imwrite(str(OUTPUT_DIR / "cielab_image.png"), cielab_image)
+
+# 5. Original Image converted to HLS image
+hls_image = cv2.cvtColor(image, cv2.COLOR_BGR2HLS)
+cv2.imwrite(str(OUTPUT_DIR / "hls_image.png"), hls_image)
+
+print("Converted images saved successfully!")
+print(f"Saved files in: {OUTPUT_DIR}")
